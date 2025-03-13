@@ -1,0 +1,28 @@
+$primary-color: #001F5F;
+$secondary-color: #B4EBE6;
+$hover-color: #003A80;
+$warm-gray: #eceff1;
+$background-gradient: linear-gradient(to right bottom, $primary-color, #004581, #006b9c, #3492b2, #6ab8c7, #6cbbc9, #6ebdcc, #70c0ce, #3e9fbf, #007eae, #005c9a, #003a80);
+$background-sidebar: linear-gradient(to right bottom, #0a0f29, #001f3f, #003366, #004c99, #005bbd);
+
+
+:root {
+  --primary-color: #{$primary-color};
+  --secondary-color: #{$secondary-color};
+  --hover-color: #{$hover-color};
+  --background-gradient: #{$background-gradient};
+}
+
+.bg-auth{
+  background: $background-gradient;
+  color: $primary-color;
+}
+
+.bg-sidebar{
+  background: $background-sidebar;
+  color: white;
+}
+
+.bg-warm-gray{
+  background-color: $warm-gray;
+}

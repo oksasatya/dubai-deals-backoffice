@@ -1,0 +1,81 @@
+:root {
+  --primary-color: #001F5F;
+  --secondary-color: #B4EBE6;
+  --hover-color: #003A80;
+  --background-gradient: linear-gradient(to right bottom, #001F5F, #004581, #006b9c, #3492b2, #6ab8c7, #6cbbc9, #6ebdcc, #70c0ce, #3e9fbf, #007eae, #005c9a, #003a80);
+}
+
+.bg-auth {
+  background: linear-gradient(to right bottom, #001F5F, #004581, #006b9c, #3492b2, #6ab8c7, #6cbbc9, #6ebdcc, #70c0ce, #3e9fbf, #007eae, #005c9a, #003a80);
+  color: #001F5F;
+}
+
+.bg-sidebar {
+  background: linear-gradient(to right bottom, #0a0f29, #001f3f, #003366, #004c99, #005bbd);
+  color: white;
+}
+
+.bg-warm-gray {
+  background-color: #eceff1;
+}
+
+.text-primary {
+  color: #001F5F;
+}
+
+.text-secondary {
+  color: #B4EBE6;
+}
+
+.bg-secondary {
+  background-color: #B4EBE6;
+}
+
+.hover\:bg-hover:hover {
+  background-color: var(--hover-color);
+}
+
+.bg-primary {
+  background-image: linear-gradient(to right, #001F5F 0%, #B4EBE6 51%, #003A80 100%) !important;
+  background-size: 200% auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: 0.5s;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  display: inline-block;
+  font-weight: bold;
+  cursor: pointer;
+}
+.bg-primary:hover {
+  background-position: right center;
+  color: white;
+  text-decoration: none;
+}
+
+.focus\:ring-secondary:focus {
+  --tw-ring-color: var(--secondary-color);
+}
+
+.bg-secondary {
+  background-color: #B4EBE6;
+}
+
+@keyframes loading-progress {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 80%;
+  }
+  100% {
+    width: 100%;
+    opacity: 0;
+  }
+}
+.animate-loading {
+  animation: loading-progress 2.5s ease-in-out forwards;
+}
+
+/*# sourceMappingURL=global.css.map */

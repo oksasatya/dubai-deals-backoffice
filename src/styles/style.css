@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+
+@theme {
+	--color-sapphire-50: #f5f9fc;
+	--color-sapphire-100: #ebf3f9;
+	--color-sapphire-200: #cdd9e9;
+	--color-sapphire-300: #afc0da;
+	--color-sapphire-400: #7290bc;
+	--color-sapphire-500: #3c60a0;
+	--color-sapphire-600: #366093;
+	--color-sapphire-700: #2c5179;
+	--color-sapphire-800: #233f5f;
+	--color-sapphire-900: #1d334e;
+}

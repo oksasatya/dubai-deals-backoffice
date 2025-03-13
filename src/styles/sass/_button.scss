@@ -1,0 +1,32 @@
+@use "./variables" as *;
+.hover\:bg-hover:hover {
+  background-color: var(--hover-color);
+}
+.bg-primary {
+  background-image: linear-gradient(to right, $primary-color 0%, $secondary-color 51%, $hover-color 100%) !important;
+  background-size: 200% auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: 0.5s;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  display: inline-block;
+  font-weight: bold;
+  cursor: pointer;
+  
+  &:hover {
+	background-position: right center;
+	color: white;
+	text-decoration: none;
+  }
+}
+
+.focus\:ring-secondary {
+  &:focus {
+	--tw-ring-color: var(--secondary-color);
+  }}
+
+.bg-secondary{
+  background-color: $secondary-color;
+}

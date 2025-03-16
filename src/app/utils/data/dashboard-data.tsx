@@ -1,4 +1,4 @@
-export const usersData = [
+export const usersData:{month:string,users:number}[] = [
 	{ month: "Jan", users: 1200 },
 	{ month: "Feb", users: 1500 },
 	{ month: "Mar", users: 1800 },

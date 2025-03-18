@@ -21,31 +21,43 @@ export default function Sidebar({
 
 	return (
 		<div
-			className={`fixed top-0 left-0 h-screen bg-sidebar z-10 shadow-lg transition-all duration-300 ${
-				isOpen ? "w-64" : "w-25"
+			className={`fixed top-0 left-0 h-screen bg-sidebar z-10 shadow-lg transition-transform duration-500 ease-in-out ${
+				isOpen ? "w-64" : "w-25 transform-gpu"
 			}`}
-			onMouseEnter={() => {
-				if (!manualOpen) {
-					setIsOpen(true);
-				}
+			style={{
+				transition: "width 300ms cubic-bezier(0.4, 0, 0.2, 1), transform 300ms cubic-bezier(0.4, 0, 0.2, 1)"
 			}}
-			onMouseLeave={() => {
-				if (!manualOpen) {
-					setIsOpen(false);
-				}
-			}}>
+			onMouseEnter={() => !manualOpen && setIsOpen(true)}
+			onMouseLeave={() => !manualOpen && setIsOpen(false)}
+			>
 
 			{/*logo & toogle button */}
-			<div className={'flex items-center justify-between p-4 border-b'}>
-				<Image src={isOpen ? ImagesName : Images} alt="Logo" width={isOpen ? 190 : 40} height={40} />
-				<button className="p-2 rounded hover:bg-hover cursor-pointer"
-						onClick={() => {
-							const newManualState = !manualOpen;
-							setManualOpen(newManualState);
-							setIsOpen(newManualState);
-						}}
+			<div className="flex items-center justify-between p-4 border-b transition-all duration-300 ease-in-out">
+				<div className="transition-all duration-300 ease-in-out overflow-hidden" style={{width: isOpen ? '190px' : '40px'}}>
+					<Image
+						src={isOpen ? ImagesName : Images}
+						alt="Logo"
+						width={isOpen ? 190 : 40}
+						height={40}
+						className="transition-transform duration-300 ease-in-out"
+					/>
+				</div>
+				<button
+					className="p-2 rounded hover:bg-hover cursor-pointer transition-all duration-300 ease-in-out"
+					onClick={() => {
+						const newManualState = !manualOpen;
+						setManualOpen(newManualState);
+						setIsOpen(newManualState);
+					}}
 				>
-					{isOpen ? <X size={24} /> : <Menu size={24} />}
+					<div className="relative h-6 w-6">
+						  <span className={`absolute inset-0 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
+							<X size={24} />
+						  </span>
+						<span className={`absolute inset-0 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'}`}>
+							<Menu size={24} />
+						</span>
+					</div>
 				</button>
 			</div>
 			<SidebarItem href="/dashboard" icon={<Home size={24} />} label="Dashboard" isOpen={isOpen} />

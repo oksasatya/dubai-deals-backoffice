@@ -5,6 +5,7 @@ import {login} from "@/app/services/authService";
 import {setToken} from "@/app/utils/cookies";
 import {useRouter} from "next/navigation";
 import toast from "react-hot-toast";
+import {api, roles} from "@/app/api/api";
 
 export default function Login() {
 	const router = useRouter();
@@ -38,11 +39,11 @@ export default function Login() {
 			const token = data.data.token;
 			const role = data.data.role;
 
-			if (role != "admin") {
+			if (role != roles.admin && role != roles.superADMIN) {
 				toast.error("You are not authorized to access this page");
 			}
 
-			if(token && role === "admin"){
+			if(token && role === roles.admin || role === roles.superADMIN){
 				setToken(token);
 				toast.success("Login successfully");
 				setTimeout(()=> router.push("/dashboard"), 1000);

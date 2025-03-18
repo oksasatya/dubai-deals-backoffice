@@ -5,3 +5,8 @@ export const api  = {
 	logout: `${API_BASE_URL}/users/logout`,
 	userProfile: `${API_BASE_URL}/users/profile`,
 }
+
+export const roles = {
+	superADMIN: "SUPERADMIN",
+	admin: "ADMIN",
+}

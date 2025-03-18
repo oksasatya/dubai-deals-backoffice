@@ -1,9 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
-import Image from "next/image";
+import AvatarDropdown from "@/app/dashboard/components/avatarDropdown";
+// import Image from "next/image";
 
 export default function Navbar({ isOpen }: { isOpen: boolean }) {
-	const UserAvatar = "/images/user/avatar.png";
+	// const UserAvatar = "/images/user/avatar.png";
 	const [navStyles, setNavStyles] = useState({ left: "16rem", width: "calc(100% - 16rem)",padding: "0rem" });
 	const [isLoading, setIsLoading] = useState(true);
 
@@ -29,7 +30,10 @@ export default function Navbar({ isOpen }: { isOpen: boolean }) {
 					<div className={'h-full bg-blue-500 animate-loading'}></div>
 				</div>
 			)}
-			<Image src={UserAvatar} alt="User" width={40} height={40} className="ml-auto rounded-full cursor-pointer" />
+			<div className={'ml-auto rounded-full'}>
+				<AvatarDropdown />
+			</div>
+			{/*<Image src={UserAvatar} alt="User" width={40} height={40} className="ml-auto rounded-full cursor-pointer" />*/}
 		</div>
 	);
 }

@@ -8,7 +8,9 @@ import LoadingSpinner from "@/app/dashboard/components/loadingSpinner";
 import {getToken} from "@/app/utils/cookies";
 import {getStats} from "@/app/services/statService";
 import {useRouter} from "next/navigation";
-import {getUserProfile} from "@/app/services/authService";
+import {useDispatch} from "react-redux";
+import {fetchUserProfile} from "@/app/redux/slices/userSlice";
+import {AppDispatch} from "@/app/redux/slices/store";
 
 const LineChartComponent = dynamic(() => import("@/app/dashboard/components/lineChartComponent"), {
 	ssr: false,
@@ -29,8 +31,8 @@ export default function DashboardPage() {
 	const [monthlyData, setMonthlyData] = useState<{ month: string; users: number }[]>([]);
 	const [isClient, setIsClient] = useState(false);
 	const [loading, setLoading] = useState(true);
-	const [username, setUsername] = useState<string>('admin');
-
+	const [name] = useState<string>('admin');
+	const dispatch = useDispatch<AppDispatch>();
 
 	useEffect(() => {
 		const token = getToken();
@@ -46,11 +48,8 @@ export default function DashboardPage() {
 				setStats(data.totalStats);
 				setMonthlyData(Array.isArray(data.usersData) ? data.usersData : []);
 
-				// Get User Profile
-				const userProfile = await getUserProfile();
-				if(userProfile && userProfile.username){
-					setUsername(userProfile.username);
-				}
+				// dispatch action redux
+				dispatch(fetchUserProfile());
 
 			} catch (e) {
 				console.error("Failed To Fetch Data", e);
@@ -60,7 +59,7 @@ export default function DashboardPage() {
 		}
 		fetchData().then(r => console.log(r));
 		setIsClient(true);
-	},[router]);
+	},[router, dispatch]);
 
 	if(loading){
 		return <LoadingSpinner />;
@@ -69,7 +68,9 @@ export default function DashboardPage() {
 	return (
 		<div className="p-6">
 			<h1 className="text-2xl font-bold text-primary">Dashboard</h1>
-			<p className="text-gray-500 mb-6">Welcome, {username}</p>
+			<p className="text-gray-500 mb-6">Welcome, {name}</p>
+
+
 
 			{/* Stats Cards */}
 			<div className="grid grid-cols-1 md:grid-cols-3 gap-4">

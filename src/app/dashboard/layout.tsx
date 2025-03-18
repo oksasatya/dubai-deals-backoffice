@@ -13,7 +13,7 @@ export default function DashboardLayout({children} : {children:ReactNode}) {
 			<div className={`flex flex-col flex-1 transition-all duration-300 ${isOpen ? "ml-64" : "ml-16"}`}>
 				<Navbar isOpen={isOpen} />
 
-				<main className={`flex-1 px-19 py-6 mt-20 transition-all duration-300 ${isOpen ? "backdrop-blur-md bg-gray-100 bg-opacity-40" : ""}`}>
+				<main className={`flex-1 px-19 py-6 mt-20 transition-all duration-300`}>
 					{children}
 				</main>
 			</div>

@@ -1,5 +1,10 @@
 import {api} from "@/app/api/api";
-import {getToken} from "@/app/utils/cookies";
+import {getToken, removeToken} from "@/app/utils/cookies";
+import {clearUserData} from "@/app/redux/slices/userSlice";
+import {store} from "@/app/redux/slices/store";
+import {useRouter} from "next/navigation";
+import {Router} from "next/router";
+import {navigate} from "next/dist/client/components/segment-cache";
 
 
 export const login= async (email: string, password: string) => {
@@ -26,7 +31,9 @@ export const login= async (email: string, password: string) => {
 }
 
 export const logout = () => {
+	removeToken();
 
+	store.dispatch(clearUserData());
 }
 
 export const getUserProfile = async () => {

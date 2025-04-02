@@ -1,15 +1,9 @@
-// /** @type {import('tailwindcss').Config} */
-import  type { Config } from 'tailwindcss';
-const config: Config = {
-	content: ["./src/**/*.{js,ts,jsx,tsx}"],
-	theme: {
-		extend: {
-			fontFamily: {
-				montserrat: ["Montserrat", "sans-serif"],
-			},
-		},
-	},
-	plugins: [],
-};
-
-export default config;
+// tailwind.config.js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+    content: [
+        './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+        './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+        './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    ],
+}

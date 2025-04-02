@@ -13,16 +13,26 @@ $background-sidebar: linear-gradient(to right bottom, #0a0f29, #001f3f, #003366,
   --background-gradient: #{$background-gradient};
 }
 
-.bg-auth{
+.bg-auth {
   background: $background-gradient;
   color: $primary-color;
 }
 
-.bg-sidebar{
+.bg-sidebar {
   background: $background-sidebar;
   color: white;
 }
 
-.bg-warm-gray{
+.bg-warm-gray {
   background-color: $warm-gray;
+}
+
+.focus-blue {
+  border-radius: 0.375rem;
+
+  &:focus {
+    outline: none !important;
+    border-color: $hover-color !important;
+    box-shadow: 0 0 0 1px rgba($hover-color, 0.5) !important;
+  }
 }
